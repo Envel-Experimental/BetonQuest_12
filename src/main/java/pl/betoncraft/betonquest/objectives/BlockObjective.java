@@ -31,6 +31,7 @@ public class BlockObjective extends Objective implements Listener {
     private final int notifyInterval;
     private final BlockSelector selector;
     private final boolean exactMatch;
+    private final boolean noSafety;
 
     public BlockObjective(final Instruction instruction) throws InstructionParseException {
         super(instruction);
@@ -40,6 +41,7 @@ public class BlockObjective extends Objective implements Listener {
         neededAmount = instruction.getInt();
         notifyInterval = instruction.getInt(instruction.getOptional("notify"), 1);
         notify = instruction.hasArgument("notify") || notifyInterval > 1;
+        noSafety = instruction.hasArgument("noSafety");
     }
 
     @SuppressWarnings("PMD.CyclomaticComplexity")
@@ -84,6 +86,9 @@ public class BlockObjective extends Objective implements Listener {
     @SuppressWarnings("PMD.CyclomaticComplexity")
     @EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
     public void onBlockBreak(final BlockBreakEvent event) {
+        if (noSafety) {
+            return;
+        }
         final String playerID = PlayerConverter.getID(event.getPlayer());
         if (containsPlayer(playerID) && selector.match(event.getBlock(), exactMatch) && checkConditions(playerID)) {
             final BlockData playerData = (BlockData) dataMap.get(playerID);
