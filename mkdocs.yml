@@ -1,0 +1,165 @@
+site_name: BetonQuest
+site_author: BetonQuest Organisation
+site_url: https://docs.betonquest.org/
+site_dir: target/docs
+docs_dir: documentation
+repo_name: BetonQuest on GitHub
+repo_url: https://github.com/BetonQuest/BetonQuest
+edit_uri: /BetonQuest/BetonQuest/edit/main_v1.12/documentation/
+copyright: '© 2023  BetonQuest Organisation. GPLv3'
+
+extra_css:
+  - 'webCode/css/centered.css'
+  - 'webCode/css/contentAreaFullWidth.css'
+
+
+extra_javascript:
+  - 'webCode/js/copyLinkToClipboard.js'
+
+# More info on this theme: https://squidfunk.github.io/mkdocs-material
+theme:
+  name: material
+  custom_dir: 'documentation/_custom_theme'
+  language: en
+  features:
+    - content.code.copy
+    - content.action.edit
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.tracking
+    - navigation.top
+    - navigation.sections
+    - navigation.expand
+    - search.share
+    - search.suggest
+  palette:
+    - scheme: slate
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/lightbulb
+        name: Switch to light mode
+    - scheme: default
+      primary: blue
+      accent: blue
+      toggle:
+        icon: fontawesome/solid/moon
+        name: Switch to dark mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  logo: media/design/BQIcon1k.png
+  favicon: media/design/favicon.ico
+
+
+
+# See the following for docs on these extensions: https://squidfunk.github.io/mkdocs-material/extensions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - codehilite:
+      linenums: true
+  - footnotes
+  - meta
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.keys
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - toc:
+      permalink: 🔗
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: timeago
+
+extra:
+  version:
+    provider: mike
+    default:
+      - RELEASE
+      - DEV
+  analytics:
+    provider: google
+    property: !ENV [ ANALYTICS_PROPERTY ]
+
+  social:
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/rK6mfHq
+    - icon: fontawesome/solid/faucet-drip
+      link: https://spigotmc.org/resources/2117/
+    - icon: fontawesome/brands/github
+      link: https://github.com/BetonQuest/BetonQuest
+    - icon: octicons/mail-16
+      link: mailto://contact@betonquest.org
+
+#Notice that here are a few strange looking hairspaces in here.
+#They make the space between the emojis and the text look equal
+nav:
+  - 'Home':
+      - '👋 Welcome!': index.md
+      - 'Overview':
+          - '✨ Features': Features.md
+          - '👔  For Owners': For-Owners.md
+          - '🎨 For Questers': For-Questers.md
+  - 'Learn Beton':
+      - '👋 Welcome!': Learn-Beton/Welcome.md
+      - 'Getting Started':
+          - '💻 Setting up a local test server': Learn-Beton/Getting-Started/Setting-up-a-local-test-server.md
+          - '📥 Installing BetonQuest': Learn-Beton/Getting-Started/Installing-BetonQuest.md
+          - '✒️ Setting up the editor': Learn-Beton/Getting-Started/Setting-up-the-editor.md
+          - '📑 YAML for questers': Learn-Beton/Getting-Started/YAML-for-questers.md
+          - '🎓 Learn BetonQuest': Learn-Beton/Getting-Started/Learn-BetonQuest.md
+      - '❓ Frequently Asked Questions':
+          - '🤔  General FAQ': Learn-Beton/Frequently-Asked-Questions.md
+
+  - 'User Documentation':
+      - 'General':
+          - '📚   Reference': User-Documentation/Reference.md
+          - '💬  Conversations': User-Documentation/Conversations.md
+
+      - 'Types':
+          - '✔️ Objectives List': User-Documentation/Objectives-List.md
+          - '⚙️ Events List': User-Documentation/Events-List.md
+          - '  ❓    Conditions List': User-Documentation/Conditions-List.md
+          - '🤝 Compatibility List': User-Documentation/Compatibility.md
+          - '🔮   Variables List': User-Documentation/Variables-List.md
+
+      - 'Notifications':
+          - '🔊   Settings': User-Documentation/Notification-Settings.md
+          - "🏷️   IO's & Categories": User-Documentation/Notification-IO's-&-Categories.md
+
+      - 'Technical':
+          - '🔒 Permissions & Commands': User-Documentation/Commands-and-permissions.md
+          - '📥 Updating': User-Documentation/Updating-and-Backups.md
+          - '🔧  Configuration': User-Documentation/Configuration.md
+          - '🗃️ Changelog': User-Documentation/CHANGELOG.md
+
+  - 'Developer Documentation':
+      - '📚 Contributing Guidelines': Developer-Documentation/Contributing-Guidelines.md
+      - '⚙️ API': Developer-Documentation/API.md
+      - '🏭 Versioning & Releasing': Developer-Documentation/Versioning-and-Releasing.md
+  - 'Contributing':
+      - '🤝 Overview': Contributing/Contributing.md
+      - 'Docs':
+          - '🔧 Setup': Contributing/Documentation/Setup.md
+          - '📚 Guidelines': Contributing/Documentation/Guidelines.md
+      - 'Sponsorships':
+          - '💲 Patreon': Contributing/Sponsors.md
+  - 'Downloads': Downloads/index.md
